@@ -132,7 +132,6 @@ public class PedidoServiceImpl implements PedidoService {
     public List<Pedido> findAll() {
         return pedidoRepository.findAll();
     }
-
     @Override
     public void deleteById(Long id) {
         Pedido pedido = pedidoRepository.findById(id)
@@ -143,6 +142,11 @@ public class PedidoServiceImpl implements PedidoService {
 
         // Luego eliminar el pedido
         pedidoRepository.delete(pedido);
+    }
+
+    @Override
+    public List<Pedido> findByUsuarioId(Long userid) {
+        return pedidoRepository.findPedidoByUsuario_Id(userid);
     }
 
 }
